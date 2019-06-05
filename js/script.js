@@ -14,15 +14,35 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+var quotes = [
+  {quote: 'quote1',
+  source: 'source1',},
+  {quote: 'quote2',
+  source: 'source2',},
+  {quote: 'quote3',
+  source: 'source3',},
+  {quote: 'quote4',
+  source: 'source4',
+  citation: 'citation1'},
+  {quote: 'quote5',
+  source: 'source5',
+  year: 'year'},
+];
 
+ 
 
 
 
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
+   - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
+
+function getRandomQuote(){
+  var randomNumber = Math.floor (Math.random() * quotes.length);
+  return quotes[randomNumber];
+}
 
 
 
@@ -40,7 +60,11 @@ project 1 - A Random Quote Generator
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
-
+function printQuote(){
+  var randomquote = getRandomQuote();
+  var htmlstring = "";
+  
+}
 
 
 /***
@@ -50,7 +74,7 @@ project 1 - A Random Quote Generator
   comment.
 ***/
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
