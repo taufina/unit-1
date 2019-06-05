@@ -29,7 +29,6 @@ var quotes = [
   year: 'year'},
 ];
 
- 
 
 
 
@@ -43,6 +42,8 @@ function getRandomQuote(){
   var randomNumber = Math.floor (Math.random() * quotes.length);
   return quotes[randomNumber];
 }
+
+console.log(getRandomQuote());
 
 
 
@@ -61,11 +62,30 @@ function getRandomQuote(){
 ***/
 
 function printQuote(){
-  var randomquote = getRandomQuote();
-  var htmlstring = "";
-  
+  var result = getRandomQuote();
+  var message = "";
+  message += '<p class="quote">'+ result.quote + '</p>';
+  message += '<p class="source">' + result.source ;
+  if ( result.citation ){
+    message += '<span class="citation">' + result.citation + '</span>'
+  }
+  if ( result.year ){
+    message += '<span class="year">' + result.year + '</span>'
+  }
+  message += '</p>';
+  print(message);
 }
 
+
+
+
+function print (message) {
+  console.log(message);
+  var quoteBox = document.getElementById('quote-box');
+  quoteBox.innerHTML = message;
+}
+  
+  
 
 /***
   When the "Show another quote" button is clicked, the event listener 
@@ -74,7 +94,7 @@ function printQuote(){
   comment.
 ***/
 
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+// Remember to delete the comments that came with this file, and replace them with your own code comments
