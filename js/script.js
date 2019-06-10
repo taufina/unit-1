@@ -10,13 +10,14 @@ Nabila Taufiq
 var quotes = [
   {quote: 'Would you like me to give you a formula for success? It’s quite simple, really. Double your rate of failure.',
   source: 'Thomas Watson',
+  category: 'inspirational'
   },
   {quote: 'Life isn’t about finding yourself. Life is about creating yourself. ',
   source: 'George Bernard Shaw',
   },
   {quote: 'Be kind, for whenever kindness becomes part of something, it beautifies it. Whenever it is taken from something, it leaves it tarnished.',
   source: 'Prophet Muhammad (peace be upon him)',
-  citation: 'Sahih Muslim',
+  citation: 'Sahih Muslim', 'https://sunnah.com/'
   category: 'Religious'
   },
   {quote: 'Indeed, Allah will not change the condition of a people until they change what is in themselves.',
@@ -53,14 +54,15 @@ console.log(getRandomQuote());
  - the random quote is stored into the variable result.  
  - then I created a variable named message to store the html string. To build the message:
     - In the beginning I started off with an empty string, because I have nothing to add to the message yet.
-    - then I selected the quote from the result, and added it to the message.  I closed off the p tag as the quote section has different formatting.
+    - then I selected the quote from the result (which is the random quote that was selected from the quotes array), and added it to the message.  
+      I closed off the p tag as the quote section has different formatting.
     - then I selected the source from the result, and added it to the message variable.
     - I used a conditional statement to check that if the result has a citation property, then add it to the message.  
     - I used another conditional statement to check that if the result has a year property, then add it to the message.
-    - After that I used the p tag to close the message, so source, citation and year will have same citation.  
-  - Then I selected the 'quote-box', and set the innerHTML to the message that prints the quote, source, citation and year.
-  - Below I added another function that changes the background color.  Then within the function printQuote, 
-    I selected the loadQuote section, and set the innerHTML where it calls to random_bg_color function to change the background color.  
+    - I used another conditional statement to check that if the result has a category property, and then concatenated it to the message string as well.
+    - After that I used the p tag to close the message, so source, citation, year and category will have same formatting.  
+  - Then I selected the 'quote-box', and set the innerHTML to the message that prints the quote, source, citation, year and category.
+  
 ***/
 
 function printQuote(){
@@ -69,14 +71,16 @@ function printQuote(){
   var color = random_bg_color();
   message += '<p class="quote">'+ result.quote + '</p>';
   message += '<p class="source">' + result.source ;
+  
   if ( result.citation ){
     message += '<span class="citation">' + result.citation + '</span>'
   }
   if ( result.year ){
     message += '<span class="year">' + result.year + '</span>'
   }
-  if ( result.year ){
-    message += '<span class="year">' + result.year + '</span>'
+  if (result.category){
+    message += ", " + '<span class="category">'+ result.category + '</span>';
+
   }
   message += '</p>';
   document.getElementById('quote-box').innerHTML = message;
@@ -84,11 +88,22 @@ function printQuote(){
 }
 
 /***
-  Then I used setinterval to call the printQuote function every 20 seconds.
+  Then I used setinterval() method to call the printQuote function every 20 seconds.
 ***/
 
-setInterval(function(){printQuote()}, 2000);
+setInterval(function(){printQuote()}, 20000);
 
+
+
+/*
+- Below I added another function that changes the background color.  
+- I created variables named x, y, z.  I set those variables equal to a function that finds a random number between 0 and 255.
+- Then I created another variable named bgColor, and set it equal to the rgb() function, which uses the randomly generated numbers to come up with a random color.
+- Then I am setting the background color equal to the background color that was randomly created. 
+- When we click the "Show another quote" button, then the event listener is triggered, and it will call the random_bg_color function.
+
+  
+*/
 
 function random_bg_color() {
   var x = Math.floor(Math.random() * 256);
