@@ -10,19 +10,18 @@ Nabila Taufiq
 var quotes = [
   {quote: 'Would you like me to give you a formula for success? It’s quite simple, really. Double your rate of failure.',
   source: 'Thomas Watson',
-  category: 'inspirational'
+  category: 'Inspirational'
   },
   {quote: 'Life isn’t about finding yourself. Life is about creating yourself. ',
   source: 'George Bernard Shaw',
   },
   {quote: 'Be kind, for whenever kindness becomes part of something, it beautifies it. Whenever it is taken from something, it leaves it tarnished.',
   source: 'Prophet Muhammad (peace be upon him)',
-  citation: 'Sahih Muslim', 'https://sunnah.com/'
+  citation: 'https://sunnah.com/',
   category: 'Religious'
   },
   {quote: 'Indeed, Allah will not change the condition of a people until they change what is in themselves.',
   source: 'Qur’an 13:11',
-  category: 'Religious'
   },
   {quote: 'Life is like a tree, you just have to keep growing',
   source: 'Nabila Taufiq',
