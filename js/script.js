@@ -53,14 +53,14 @@ console.log(getRandomQuote());
  - the random quote is stored into the variable result.  
  - then I created a variable named message to store the html string. To build the message:
     - In the beginning I started off with an empty string, because I have nothing to add to the message yet.
-    - then I selected the quote from the result (which is the random quote that was selected from the quotes array), and added it to the message.  
-      I closed off the p tag as the quote section has different formatting.
+    - then I selected the quote from the result (which is the random quote that was selected from the quotes array), and 
+      added it to the message. I closed off the p tag as the quote section has different formatting.
     - then I selected the source from the result, and added it to the message variable.
     - I used a conditional statement to check that if the result has a citation property, then add it to the message.  
     - I used another conditional statement to check that if the result has a year property, then add it to the message.
     - I used another conditional statement to check that if the result has a category property, and then concatenated it to the message string as well.
     - After that I used the p tag to close the message, so source, citation, year and category will have same formatting.  
-  - Then I selected the 'quote-box', and set the innerHTML to the message that prints the quote, source, citation, year and category.
+  - Then I selected the 'quote-box' id, and replace the innerHTML to the message that prints the quote, source, citation, year and category.
   
 ***/
 
@@ -79,13 +79,11 @@ function printQuote(){
   }
   if (result.category){
     message += ", " + '<span class="category">'+ result.category + '</span>';
-
   }
   message += '</p>';
   document.getElementById('quote-box').innerHTML = message;
   
 }
-
 /***
   Then I used setinterval() method to call the printQuote function every 20 seconds.
 ***/
@@ -105,16 +103,16 @@ setInterval(function(){printQuote()}, 20000);
 */
 
 function random_bg_color() {
-  var x = Math.floor(Math.random() * 256);
-  var y = Math.floor(Math.random() * 256);
-  var z = Math.floor(Math.random() * 256);
-  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-console.log(bgColor);
+  var red = Math.floor(Math.random() * 256);
+  var blue = Math.floor(Math.random() * 256);
+  var green = Math.floor(Math.random() * 256);
+  var bgColor = "rgb(" + red + "," + blue + "," + green + ")";
+  console.log(bgColor);
 
   document.body.style.background = bgColor;
-  document.getElementById('loadQuote').addEventListener("click", random_bg_color, false);
+}
 
-  }
+document.getElementById('loadQuote').addEventListener("click", random_bg_color, false);
 
 random_bg_color();
 
